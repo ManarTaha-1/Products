@@ -140,10 +140,12 @@
             updateCartItemDisplay(product.name);
             const currentInput = btnContainer.querySelector('.num');
             if (currentInput) currentInput.textContent = cartItems[product.name].quantity;
+            orderTotal.innerHTML = `Order Total  <span class="total-money">$${calculateOrderTotal().toFixed(2)} </span>`;
 
         }
 
         updateTotalItems(1);
+        updateOrderTotalDisplay();
         };
     });
 
@@ -168,6 +170,11 @@
     return total;
     }
 
-    });
+    function updateOrderTotalDisplay() {
+        if (orderTotal) {
+            orderTotal.innerHTML = `Order Total  <span class="total-money">$${calculateOrderTotal().toFixed(2)} </span>`;
+        }
+        }
 
+    });
 
